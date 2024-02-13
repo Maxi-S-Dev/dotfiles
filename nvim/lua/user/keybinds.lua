@@ -1,3 +1,5 @@
+local harpoon_ui = require("harpoon.ui")
+local harpoon_mark = require("harpoon.mark")
 
 local M = {}
 --- Telescope
@@ -34,5 +36,57 @@ M.lsp_keybinds = function(buffer_number)
   vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = " Format Document ", buffer = buffer_number})
 end
 
+
+--Save, Quit & Savequit with leader keymap
+vim.keymap.set('n', "w", ":wa<CR>", { desc = "save"})
+vim.keymap.set('n', "q", ":q<CR>", { desc = "quit neovim"})
+vim.keymap.set('n', "z", ":wqa<CR>", { desc = "save and quit neovim"})
+
+--Map jj to <ESC>
+vim.keymap.set('i', "jj", "<ESC>", { desc = "escape"})
+
+
+--Harpoon keybinds
+vim.keymap.set('n', "<leader>ho", function()
+  harpoon_ui.toggle_quick_menu()
+end, {desc = "Toggle Harpoon Menu"})
+
+vim.keymap.set('n', "<leader>ha", function()
+  harpoon_mark.add_file()
+end, {desc = "Add file to harpoon"})
+
+vim.keymap.set('n', "<leader>hr", function()
+  harpoon_mark.remove_file()
+end, {desc = "Remove file from harpoon"})
+
+vim.keymap.set('n', "<leader>hc", function()
+  harpoon_mark.clear_all()
+end, {desc = "Clear all harpoon marks"})
+
+vim.keymap.set('n', "<leader>1", function()
+  harpoon_mark.go_to_mark(1)
+end, {desc = "Go to harpoon mark 1"})
+
+vim.keymap.set('n', "<leader>2", function()
+  harpoon_mark.go_to_mark(2)
+end, {desc = "Go to harpoon mark 2"})
+
+vim.keymap.set('n', "<leader>3", function()
+  harpoon_mark.go_to_mark(3)
+end, {desc = "Go to harpoon mark 3"})
+
+vim.keymap.set('n', "<leader>4", function()
+  harpoon_mark.go_to_mark(4)
+end, {desc = "Go to harpoon mark 4"})
+
+vim.keymap.set('n', "<leader>5", function()
+  harpoon_mark.go_to_mark(5)
+end, {desc = "Go to harpoon mark 5"})
+
+
+
+--Git keybinds
+vim.keymap.set('n', '<leader>gl', ':LazyGit<CR>', {desc = 'Open LazyGit'})
+vim.keymap.set('n', '<leader>gb', ':GitBlameToggle<CR>', {desc = 'Toggle Git Blame'})
 
 return M
