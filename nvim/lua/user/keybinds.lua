@@ -45,6 +45,8 @@ vim.keymap.set('n', "z", ":wqa<CR>", { desc = "save and quit neovim"})
 --Map jj to <ESC>
 vim.keymap.set('i', "jj", "<ESC>", { desc = "escape"})
 
+--clear search highlights
+vim.keymap.set('n', "<leader>no", ":noh<CR>", {desc = "Clear search highlights"})
 
 --Harpoon keybinds
 vim.keymap.set('n', "<leader>ho", function()
@@ -64,23 +66,23 @@ vim.keymap.set('n', "<leader>hc", function()
 end, {desc = "Clear all harpoon marks"})
 
 vim.keymap.set('n', "<leader>1", function()
-  harpoon_mark.go_to_mark(1)
+  harpoon_ui.nav_file(1)
 end, {desc = "Go to harpoon mark 1"})
 
 vim.keymap.set('n', "<leader>2", function()
-  harpoon_mark.go_to_mark(2)
+  harpoon_ui.nav_file(2)
 end, {desc = "Go to harpoon mark 2"})
 
 vim.keymap.set('n', "<leader>3", function()
-  harpoon_mark.go_to_mark(3)
+  harpoon_ui.nav_file(3)
 end, {desc = "Go to harpoon mark 3"})
 
 vim.keymap.set('n', "<leader>4", function()
-  harpoon_mark.go_to_mark(4)
+  harpoon_ui.nav_file(4)
 end, {desc = "Go to harpoon mark 4"})
 
 vim.keymap.set('n', "<leader>5", function()
-  harpoon_mark.go_to_mark(5)
+  harpoon_ui.nav_file(5)
 end, {desc = "Go to harpoon mark 5"})
 
 
